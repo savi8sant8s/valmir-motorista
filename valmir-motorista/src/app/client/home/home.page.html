@@ -1,0 +1,41 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar class="backgroundColor2">
+      <ion-icon slot="start" style="opacity: 0; font-size: 1.6rem; margin-left: 10px;"
+        name="ellipsis-horizontal-outline"></ion-icon>
+      <ion-img style="display: block; margin-left: auto; margin-right: auto; width: 1.6rem;"
+        src="../../assets/img/van_valmir2.PNG"></ion-img>
+      <ion-icon [routerLink]="'/about-us'" slot="end" style="color: #ffffff; font-size: 1.6rem; margin-right: 10px;"
+        name="help-circle-outline"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="backgroundColor1">
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-button [disabled]="spinner.driver" expand="block" fill="clear" (click)="getDriverLocation()" style="--color: #3c2255;; --indicator-color: #3c2255;">
+      <ion-label *ngIf="!spinner.driver">Onde Valmir está?</ion-label>
+      <ion-spinner *ngIf="spinner.driver" name="bubbles"></ion-spinner></ion-button>
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <div id="mapId" style="margin: auto; width: 90%; height: 60%">
+    </div>
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-button [disabled]="spinner.client" expand="block" fill="clear" (click)="checkGPSPermission()" style="--color: #3c2255;; --indicator-color: #3c2255;">
+      <ion-label *ngIf="!spinner.client">Quero viajar com Valmir</ion-label>
+      <ion-spinner *ngIf="spinner.client" name="bubbles"></ion-spinner></ion-button>
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-card *ngIf="driver.info!=null" style="--color:#ffffff; --background: #2a193a;">
+      <ion-card-header>
+        <ion-card-subtitle>Última mensagem de Valmir: <strong>
+          {{format.formatDateTimeMessage(driver.info.timestamp)}}
+        </strong></ion-card-subtitle>
+        <ion-card-title style="color: #f4f5f8;">{{driver.info.message}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <!-------------------------------------------------------------------------------------------------------->
+  </ion-content>
+</ion-app>

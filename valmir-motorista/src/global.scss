@@ -1,0 +1,140 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.backgroundColor1{
+    --background: #f5f5f5;
+}
+
+.backgroundColor2{
+    --background: #3c2255;
+}
+
+.backgroundColor3{
+    background-color: #2a193a;
+}
+
+.textColor{
+    color: #f7f7f7;
+}
+
+.textColor2{
+    color: #58139e;
+}
+
+.textColor3{
+    color: #3c2255;
+}
+
+.btnColor{
+    --color: #ffffff;
+    --color-activated: #f1f1f1;
+    --background: #3289ed;
+    --background-activated: #2f77c9;
+}
+
+.logoMotorista{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 12.5rem;
+}
+
+.center{
+    text-align: center;
+}
+
+.justify{
+    text-align: justify;
+}
+
+.margin{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.minMargin{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.minMargin2{
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.padding{
+    padding: 1.5rem;
+}
+
+.tabsDesign{
+    border-top: solid; 
+    border-color: #58139e;
+    --color: #3c2255;  
+    --color-selected: #8a2be2;
+}
+
+.verticalAlign{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.toggleDesign{
+    --handle-background-checked:#4b266d;
+    --background-checked:#3c2255;
+    --background: #c9a8e7;
+    --handle-background: #d2b0f1;
+}
+
+.segmentStyle{
+    --background: white; 
+    border-radius: 1rem 1rem 0.5rem 0.5rem;
+}
+
+.segmentBtnStyle{
+    --color: #3c2255; 
+    --color-checked: #8000ff; 
+    --indicator-color: #3c2255;
+}
+
+.modalMap {
+    --min-height:50%;
+    --max-height: 60%;
+    --max-width: 80%;
+    --border-radius: 1rem;
+    --backdrop-opacity: 0.6!important;
+ }
+
+ .verticalAlign{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}

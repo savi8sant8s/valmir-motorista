@@ -1,0 +1,36 @@
+<ion-app>
+  <ion-content class="backgroundColor1">
+    <div class="margin">
+      <!-------------------------------------------------------------------------------------------------------->
+      <ion-img class="logoMotorista" src="../../assets/img/logo_motorista.png" style="margin-top: 3rem;"></ion-img>
+      <!-------------------------------------------------------------------------------------------------------->
+
+      <!-------------------------------------------------------------------------------------------------------->
+      <h2 class="center textColor3"><strong>Acesso do motorista</strong></h2>
+      <p class="padding justify textColor3">
+        Digite email e senha para acessar.
+      </p>
+      <!-------------------------------------------------------------------------------------------------------->
+
+      <!-------------------------------------------------------------------------------------------------------->
+      <ion-item color="none" class="textColor3">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input placeholder="Email" type="email" [(ngModel)]="formAccess.email" clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item color="none" class="textColor3">
+        <ion-icon slot="start" name="key-outline"></ion-icon>
+        <ion-input placeholder="Senha" type="password" [(ngModel)]="formAccess.password" minlength="8"
+          clearInput="true"></ion-input>
+      </ion-item>
+      <!-------------------------------------------------------------------------------------------------------->
+
+      <!-------------------------------------------------------------------------------------------------------->
+      <ion-button style="--background: #3c2255; margin-top: 2rem;" expand="block" [disabled]="spinner"
+        (click)="btnCheckIfUserForcedAccess()" mode="ios">
+        <ion-spinner name="bubbles" *ngIf="spinner"></ion-spinner>
+        <ion-label *ngIf="!spinner">Acessar</ion-label>
+      </ion-button>
+      <!-------------------------------------------------------------------------------------------------------->
+    </div>
+  </ion-content>
+</ion-app>

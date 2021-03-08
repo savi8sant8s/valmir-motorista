@@ -1,0 +1,57 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar class="backgroundColor2">
+      <ion-icon slot="start" style="opacity: 0; font-size: 1.6rem; margin-left: 10px;"
+        name="ellipsis-horizontal-outline"></ion-icon>
+      <ion-img style="display: block; margin-left: auto; margin-right: auto; width: 1.6rem;"
+        src="../../assets/img/van_valmir2.PNG"></ion-img>
+      <ion-icon [routerLink]="'/about-us'" slot="end" style="color: #ffffff; font-size: 1.6rem; margin-right: 10px;"
+        name="help-circle-outline"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="backgroundColor1">
+     <!-------------------------------------------------------------------------------------------------------->
+    <div *ngIf="status=='success'">
+      <h5 style="margin-top: 1.2rem" class="center textColor3">Clique no ícone do <strong>mapa</strong> para ver onde o cliente está.</h5>
+      <div class="justify minMargin" *ngFor="let client of clients" style="margin-top: 0.2rem;">
+        <ion-row style="background-color: white;">
+          <ion-col size="8" class="textColor3">
+            <p><strong>Hora:</strong> {{client.time}}</p>
+            <p><strong>Nome:</strong> {{client.name}}</p>
+            <p><strong>Onde está:</strong> {{client.message}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-icon style="color: #3c2255; font-size:30px; margin-left: auto; margin-right: auto;" class="verticalAlign" (click)="goMap(client)" name="map-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="pauseScroll">  
+        <ion-infinite-scroll-content  
+          loadingSpinner="bubbles"  
+          style="--color: #0f429b;">  
+        </ion-infinite-scroll-content>  
+      </ion-infinite-scroll>  
+    </div>
+     <!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <div *ngIf="status=='loading'">
+      <div style="text-align: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        <ion-spinner name="bubbles" style="transform: scale(2); --color: #3c2255;"></ion-spinner>
+      </div>
+    </div>
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <div *ngIf="status=='empty'" style="text-align: justify; border: solid; border-radius: 1rem; border-color: #3c2255; padding: 1rem;" class="margin verticalAlign">
+      <p style="color: #3c2255;">Nenhum cliente mandou um aviso ainda.</p>
+    </div>
+    <!-------------------------------------------------------------------------------------------------------->
+    
+    <!-------------------------------------------------------------------------------------------------------->
+    <div *ngIf="status=='failed'">
+      
+    </div>
+     <!-------------------------------------------------------------------------------------------------------->
+  </ion-content>
+</ion-app>

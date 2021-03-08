@@ -1,0 +1,34 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar class="backgroundColor2">
+      <ion-icon slot="start" style="opacity: 0; font-size: 1.6rem; margin-left: 10px;"
+        name="ellipsis-horizontal-outline"></ion-icon>
+      <ion-img style="display: block; margin-left: auto; margin-right: auto; width: 1.6rem;"
+      src="../../assets/img/van_valmir2.PNG"></ion-img>
+      <ion-icon [routerLink]="'/about-us'" slot="end" style="color: #ffffff; font-size: 1.6rem; margin-right: 10px;"
+        name="help-circle-outline"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="backgroundColor1">
+     <!-------------------------------------------------------------------------------------------------------->
+    <ion-segment class="segmentStyle" lines="full">
+      <ion-segment-button [disabled]="spinner.send" (click)="checkGPSPermission()" class="segmentBtnStyle">
+        <ion-label *ngIf="!spinner.send">Enviar</ion-label>
+        <ion-spinner *ngIf="spinner.send" name="bubbles"></ion-spinner>
+      </ion-segment-button>
+      <ion-segment-button [disabled]="!spinner.send" (click)="btnPauseLocation()" class="segmentBtnStyle">
+        <ion-label *ngIf="!spinner.pause">Pausar</ion-label>
+        <ion-spinner *ngIf="spinner.pause" name="bubbles"></ion-spinner>
+      </ion-segment-button>
+    </ion-segment>
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-progress-bar *ngIf="spinner.send" type="indeterminate"></ion-progress-bar>
+    <div id="mapId" style="margin: auto; width: 90%; height: 60%">
+    </div>
+    <ion-card style="--background: #ffffff;" class="minMargin2">
+      <ion-textarea style="--color: gray; padding: 1rem;" [(ngModel)]="message" placeholder="Envie uma mensagem para seus clientes."></ion-textarea>
+      <ion-button style="--background: #3c2255; margin-left: 2rem; margin-right: 2rem; margin-bottom: 0.5rem;" [disabled]="spinner.message" expand="block" (click)="btnSendMessage()" mode="ios">
+        <ion-spinner name="bubbles" *ngIf="spinner.message"></ion-spinner><ion-label *ngIf="!spinner.message">Enviar</ion-label></ion-button>
+    </ion-card>
+  </ion-content>
+</ion-app>

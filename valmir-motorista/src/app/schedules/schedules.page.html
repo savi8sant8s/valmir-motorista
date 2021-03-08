@@ -1,0 +1,57 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar class="backgroundColor2">
+      <ion-icon slot="start" style="opacity: 0; font-size: 1.6rem; margin-left: 10px;"
+        name="ellipsis-horizontal-outline"></ion-icon>
+        <ion-img style="display: block; margin-left: auto; margin-right: auto; width: 1.6rem;"
+        src="../../assets/img/van_valmir2.PNG"></ion-img>
+      <ion-icon [routerLink]="'/about-us'" slot="end" style="color: #ffffff; font-size: 1.6rem; margin-right: 10px;"
+        name="help-circle-outline"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="backgroundColor1">
+    <!-------------------------------------------------------------------------------------------------------->
+    <div name="contacts" class="minMargin2">
+      <h2 style="margin-top: 1.2rem" class="center textColor3"><strong>Contatos de Valmir</strong></h2>
+      <ion-note class="center minMargin2">*Dica: clique no número de contato para copiá-lo.</ion-note>
+      <div class="center" *ngFor="let contact of contacts">
+        <ion-row style="background-color: white;">
+          <ion-col class="textColor3" size="6" (click)="copyContact(contact.number)">
+            {{format.formatText(contact.number, '(##) # ####-####')}}
+          </ion-col>
+          <ion-col size="4" class="textColor3">
+            <strong>{{contact.description}}</strong>
+          </ion-col>
+          <ion-col size="2">
+            <ion-icon (click)="callDriver(contact.number)" name="call-outline"  style="font-size:20px; border-style: solid; background-color:#3c2255; color:azure; border-color: #3c2255; border-radius: 100rem;"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <div name="schedules" class="minMargin2" style="margin-top: 1rem;">
+      <h3 style="margin-top: 1.2rem" class="center textColor3"><strong>Horários</strong></h3>
+      <ion-segment lines="full" class="segmentStyle" [(ngModel)]="segmentSelected" (ionChange)="selectListSchedules()">
+        <ion-segment-button class="segmentBtnStyle" value="SegSex">
+          <ion-label>Seg. à Sexta</ion-label>
+        </ion-segment-button>
+        <ion-segment-button class="segmentBtnStyle" value="Sab">
+          <ion-label>Sábado</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div class="center" *ngFor="let schedule of schedules.listSelected" style="margin-top: 0.2rem;">
+        <ion-row style="background-color: white;">
+          <ion-col class="textColor3">
+            <p><strong>{{schedule.time}}</strong></p> 
+          </ion-col>
+          <ion-col class="textColor3">
+            <p>De {{schedule.goingTo}} à {{schedule.goingOut}}</p>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <!-------------------------------------------------------------------------------------------------------->
+  </ion-content>
+</ion-app>

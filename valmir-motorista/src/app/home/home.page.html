@@ -1,0 +1,33 @@
+<ion-app>
+  <ion-content class="backgroundColor1">
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-img class="logoMotorista" src="../../assets/img/logo_motorista.png"></ion-img>
+    <!-------------------------------------------------------------------------------------------------------->
+  
+    <!-------------------------------------------------------------------------------------------------------->
+    <h2 class="center textColor3"><strong>Bem-vindo(a)</strong></h2>
+    <p class="padding justify textColor3">
+      Viajando de Palmeirina à Garanhuns - passando por São Jõao, Angelim, povoado Quatro Bocas e Baixa Grande.
+    </p>
+    <!-------------------------------------------------------------------------------------------------------->
+  
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-button style="--background: #3c2255; margin-top: 5rem" (click)="goClientPage()" class="margin" shape="round"
+      expand="block">Entrar</ion-button>
+    <!-------------------------------------------------------------------------------------------------------->
+  
+    <!-------------------------------------------------------------------------------------------------------->
+    <ion-item color="none" lines="none" style="margin-left: 2.5rem; margin-right: 2.5rem; margin-top: 1rem; border-top: solid; border-color: gray;">
+      <ion-icon class="textColor3" slot="start" name="checkmark-circle-outline"></ion-icon>
+      <ion-label [routerLink]="'/use-terms'" style="text-decoration: underline; color: #3c2255;" class="center">Aceito os termos
+      </ion-label>
+      <ion-toggle class="toggleDesign" slot="end" [(ngModel)]="terms"></ion-toggle>
+    </ion-item>
+    <!-------------------------------------------------------------------------------------------------------->
+  </ion-content>
+  
+  <ion-footer class="backgroundColor3">
+    <ion-button style="--color: #8000ff;" (click)="goDriverAccess()" expand="block" fill="clear" mode="md">Acesso do motorista
+    </ion-button>
+  </ion-footer>
+</ion-app>
